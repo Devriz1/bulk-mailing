@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV for Bulk Mailing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="file"], input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bulk Mailing System</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="{{ form.csv_file.id_for_label }}" requird>{{ form.csv_file.label }}</label>
+            {{ form.csv_file }}
+            
+            <label for="{{ form.subject.id_for_label }}" required>{{ form.subject.label }}</label>
+            {{ form.subject }}
+            
+            <label for="{{ form.message.id_for_label }}" required>{{ form.message.label }}</label>
+            {{ form.message }}
+            
+            <button type="submit">Send Emails</button>
+        </form>
+    </div>
+</body>
+</html>

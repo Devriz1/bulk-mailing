@@ -31,7 +31,7 @@ EMAIL_HOST = 'smtp.gmail.com'  # Or your email provider's SMTP server
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'rhambogamer12@gmail.com'
-EMAIL_HOST_PASSWORD = 'slbj kjvc tvwg yrbv'  # Consider using environment variables for security
+EMAIL_HOST_PASSWORD = 'i gotch you!'  # Consider using environment variables for security
 
 # Application definition
 
